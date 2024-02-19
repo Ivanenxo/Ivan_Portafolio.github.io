@@ -27,8 +27,7 @@ body {
 body.no-scroll {
     overflow: hidden;
 }
-.transparent-alert {
-    background: ; /* Hacer el fondo transparente */
+.transparent-alert { /* Hacer el fondo transparente */
     color: #000000 !important; /* Cambiar el color del texto */
     border: none !important; /* Eliminar el borde */
     box-shadow: none !important; /* Eliminar la sombra */
@@ -546,7 +545,9 @@ span.colored {
   }
 }
 @media screen and (max-width: 650px){
-  #billboard .banner-header {
+  
+  
+    #billboard .banner-header {
       width: 90%;
   }
   .banner-content h1 {
@@ -626,6 +627,25 @@ span.colored {
 }
 .skill-chart li span.ninety-percent {
   width: 90%; 
+}
+
+.foto{
+    border-radius: 48%;
+    display: block;
+    z-index: 1;
+    position: absolute;
+    top: 67%;
+    left: 50%;
+    transform: translate(4%, -119%);
+    max-width: 21%;
+}
+
+@media (max-width: 768px) {
+    .foto {
+        top: 13%; /* Porcentaje superior ajustado para mover la imagen hacia arriba */
+        max-width: 24%;
+        transform: translate(65%, 31%); /* Centrar la imagen horizontalmente */
+    }
 }
 
 @media screen and (max-width: 768px){
