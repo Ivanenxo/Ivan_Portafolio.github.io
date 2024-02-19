@@ -11,9 +11,9 @@
   // get path relative to javascript
   // ------------------------------------------------------------------------------ //
  
- $(document).ready(function(){
-      
-	$('.service-slider').slick({
+  $(document).ready(function(){
+
+    $('.service-slider').slick({
       slidesToShow: 3,
       slidesToScroll: 1,
       autoplaySpeed: 2000,
@@ -37,48 +37,40 @@
       ]
     });
 
-      
-	$('.testimonial-slider').slick({
-          autoplay: false,
-          autoplaySpeed: 4000,
-          fade: true,
-          prevArrow: $('.prev'),
-          nextArrow: $('.next'),
-	});
+    $('.testimonial-slider').slick({
+      autoplay: false,
+      autoplaySpeed: 4000,
+      fade: true,
+      prevArrow: $('.prev'),
+      nextArrow: $('.next'),
+    });
 
-});
+    // Manejar clic en el icono del menú para mostrar/ocultar el menú
+    $(".bar-icon").on('click', function() {
+      $("#navigation").toggleClass("menu-bar");
+    });
 
+    // Evitar que el menú se active al deslizar en dispositivos móviles
+    $(".bar-icon").on('touchstart', function(event) {
+      event.stopPropagation(); // Detener la propagación del evento touchstart
+    });
 
-
-// close when click off of container
-$(document).on('click touchstart', function (e){
-
-  var x = document.getElementById("navigation");
-  if (x.className === "top-menu") {
-    x.className += " menu-bar";
-  } else {
-    x.className = "top-menu";
-  }
-
-});
-
-const tabs = document.querySelectorAll('[data-tab-target]')
-const tabContents = document.querySelectorAll('[data-tab-content]')
-
-tabs.forEach(tab => {
-  tab.addEventListener('click', () => {
-    const target = document.querySelector(tab.dataset.tabTarget)
-    tabContents.forEach(tabContent => {
-      tabContent.classList.remove('active')
-    })
+    const tabs = document.querySelectorAll('[data-tab-target]')
+    const tabContents = document.querySelectorAll('[data-tab-content]')
     tabs.forEach(tab => {
-      tab.classList.remove('active')
-    })
-    tab.classList.add('active')
-    target.classList.add('active')
-  })
-});
+      tab.addEventListener('click', () => {
+        const target = document.querySelector(tab.dataset.tabTarget)
+        tabContents.forEach(tabContent => {
+          tabContent.classList.remove('active')
+        })
+        tabs.forEach(tab => {
+          tab.classList.remove('active')
+        })
+        tab.classList.add('active')
+        target.classList.add('active')
+      })
+    });
 
-
+  });
 
 })(jQuery);
